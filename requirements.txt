@@ -1,0 +1,8 @@
+orjson>=3.5.4
+aiodns>=1.1
+Brotli
+cchardet
+git+https://github.com/pycord/pycord
+lavalink>=3.1.4
+aiohttp>=3.8.1
+PyNaCl>=1.5
