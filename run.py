@@ -12,6 +12,7 @@ bot.load_extensions(
     "src.cogs.internal.error_handler",
     "src.cogs.internal.general",
     "src.cogs.internal.music",
+    "src.cogs.internal.eval",
 )
 
 bot.run(getenv("TOKEN"))
