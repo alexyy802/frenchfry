@@ -8,7 +8,7 @@ from .context import Context
 from .help import Help
 
 
-class Bot(commands.Bot):
+class Bot(commands.AutoShardedBot):
     """A subclass of commands.Bot with additional functionality."""
 
     def __init__(self, *args, **kwargs):
