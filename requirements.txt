@@ -1,5 +1,6 @@
-git+https://github.com/pycord/pycord#egg=speed
+git+https://github.com/pycord/pycord#egg=py-cord[speed]
 lavalink>=3.1.4
 aiohttp>=3.8.1
 git+https://github.com/pycord/pycord#egg=voice
 loguru
+git+https://github.com/pycord/pycord#egg=py-cord[voice]
