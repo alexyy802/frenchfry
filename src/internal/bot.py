@@ -5,7 +5,6 @@ from discord.ext import commands
 from loguru import logger
 
 from .context import Context
-from .help import Help
 
 
 class Bot(commands.AutoShardedBot):
@@ -19,7 +18,7 @@ class Bot(commands.AutoShardedBot):
         super().__init__(
             command_prefix="!", # Temp Until We get Redis connected
             intents=intents,
-            help_command=Help(),
+            #help_command=Help
             allowed_mentions=AllowedMentions(roles=False, everyone=False),
             *args,
             **kwargs,
