@@ -35,10 +35,10 @@ class LavalinkVoiceClient(discord.VoiceClient):
         else:
             self.client.lavalink = lavalink.Client(client.user.id)
             self.client.lavalink.add_node(
-                    'localhost',
+                    'lavalink.vincentrps.xyz',
                     2333,
-                    'youshallnotpass',
-                    'eu',
+                    'frenchpizza',
+                    'us',
                     'default-node')
             self.lavalink = self.client.lavalink
 
