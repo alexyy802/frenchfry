@@ -52,13 +52,6 @@ class Bot(commands.AutoShardedBot):
             f"Extension loading finished. Success: {success}. Failed: {len(exts) - success}."
         )
 
-    async def login(self, *args, **kwargs) -> None:
-        """Create the database connection before login."""
-        logger.info("Logging in to Discord...")
-
-        await self.db.setup()
-
-        await super().login(*args, **kwargs)
 
     async def get_prefix(self, message: Message):
         """Get a dynamic prefix."""
