@@ -316,8 +316,10 @@ class music(commands.Cog):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
         if not player.is_playing:
             return await ctx.send("There is nothing to skip!")
+            await ctx.message.add_reaction("🚫")
         await player.skip()
         await ctx.send("Successfully skipped the current track")
+        await ctx.message.add_reaction("➡️")
 
     @commands.command()
     async def pause(self, ctx) -> None:
@@ -325,6 +327,7 @@ class music(commands.Cog):
         if not player.is_playing:
             ctx.command.reset_cooldown(ctx)
             return await ctx.send("I am not playing anything")
+            await ctx.message.add_reaction("🚫")
         if not player.paused:
             await player.set_pause(True)
             await ctx.message.add_reaction('⏸️')
@@ -345,8 +348,10 @@ class music(commands.Cog):
             vol = int(vol)
         except ValueError:
             return await ctx.send("Volume must be a number")
+            await ctx.message.add_reaction("🚫")
         if vol not in range(0, 101):
             return await ctx.message.reply("Volume can only be in a range of **0-100**")
+            await ctx.message.add_reaction("🚫")
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
         await player.set_volume(vol)
         await ctx.message.add_reaction('📶')
@@ -357,6 +362,7 @@ class music(commands.Cog):
         player = self.bot.lavalink.player_manager.get(ctx.guild.id)
         if not player.is_playing:
             await ctx.send("I am not playing anything")
+            await ctx.message.add_reaction("🚫")
             return
 
         em=discord.Embed(title="Current Track", description=f"[{player.current.title}](https://youtube.com/watch?v={player.current.identifier})", color=discord.Color.blue())
@@ -370,6 +376,7 @@ class music(commands.Cog):
             return await ctx.message.reply(
                 content='I am currently not playing anything!',
                 mention_author=False)
+                await ctx.message.add_reaction("🚫")
 
         queue = player.queue
         random.shuffle(queue)
@@ -388,6 +395,7 @@ class music(commands.Cog):
             return await ctx.message.reply(
                 content='I am currently not playing anything!',
                 mention_author=False)
+            await ctx.message.add_reaction("🚫")
         try:
             seconds = to_seconds(time, strict=False)
         except Exception:
